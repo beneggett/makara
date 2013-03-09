@@ -34,9 +34,8 @@ Configure your database.yml as desired.
       sticky_slave: true
       sticky_master: true
 
-      adapter: makara
+      adapter: makara_mysql2
       
-      db_adapter: mysql2
       host: xxx
       user: xxx
       password: xxx
@@ -81,7 +80,7 @@ Makara is designed to be configured solely via your `database.yml`. This means t
 The minimal `database.yml` you'll need to get things running looks like (optional defaults exposed):
 
     production:
-      adapter: makara
+      adapter: makara_mysql2
 
       id: default                 // optional
       namespace: ~                // optional
@@ -90,7 +89,6 @@ The minimal `database.yml` you'll need to get things running looks like (optiona
       blacklist_duration: 60      // optional
       verbose: false              // optional
 
-      db_adapter: mysql2
       database: my_project_db
       username: root
       password: 
@@ -111,8 +109,7 @@ To define a slave connection, provide another connection with either the role re
 By default the connections will inherit the top-level connection configuration. The best practice is to put the shared options in the top-level and define all the differences in each sub-config. In the example below, the `db_adapter`, `username`, and `password` options will be shared among all the connections.
 
     production:
-      adapter: makara
-      db_adapter: mysql2
+      adapter: makara_mysql2
       username: the-user
       password: the-password
 
